@@ -1,0 +1,7 @@
+.next/
+out/
+build/
+public/
+
+# Sanity TypeGen output
+src/sanity/types.ts

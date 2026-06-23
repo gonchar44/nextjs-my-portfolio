@@ -12,19 +12,19 @@ const SKILL_FIELDS = groq`
   _id,
   _type,
   title
-`
+`;
 
 const SKILLS_QUERY = groq`
   *[_type == "skill"] | order(title asc) {
     ${SKILL_FIELDS}
   }
-`
+`;
 
 const options = { next: { revalidate: 30 } };
 
 export default async function IndexPage() {
     const testPosts = await client.fetch<SanityDocument[]>(POSTS_QUERY, {}, options);
-    const testSkills = await client.fetch<SanityDocument[]>(SKILLS_QUERY, {}, options)
+    const testSkills = await client.fetch<SanityDocument[]>(SKILLS_QUERY, {}, options);
 
     return (
         <main className="container mx-auto min-h-screen max-w-3xl p-8 gap-y-14 flex-col flex">
