@@ -3,6 +3,10 @@
 /* ─── Design tokens ──────────────────────────────────────────────────────── */
 
 :root {
+    /* font variables — overridden at runtime by next/font class injection */
+    --head-font: monospace;
+    --body-font: sans-serif;
+
     /* dark theme defaults */
     --bg: #0a0b0f;
     --bg-2: #0e1015;
@@ -110,12 +114,24 @@
     box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
 }
 
 body {
     margin: 0;
+    font-family: var(--body-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--head-font);
 }
 
 ::selection {
