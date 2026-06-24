@@ -17,9 +17,7 @@ export function ButtonLink({
     className,
     children,
 }: ButtonLinkProps) {
-    const externalProps = external
-        ? { target: "_blank", rel: "noopener noreferrer" }
-        : {};
+    const externalProps = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
 
     return (
         <a
@@ -36,7 +34,7 @@ export function ButtonLink({
                     "border border-border-2 bg-transparent text-text",
                     "hover:-translate-y-px hover:border-acc-a",
                 ],
-                className
+                className,
             )}
             {...externalProps}
         >

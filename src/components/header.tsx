@@ -19,10 +19,7 @@ export function Header() {
             <nav>
                 <div className="mx-auto flex max-w-6xl items-center gap-4 px-7 py-3.5">
                     {/* Logo */}
-                    <a
-                        href="#top"
-                        className="flex items-center gap-3 no-underline"
-                    >
+                    <a href="#top" className="flex items-center gap-3 no-underline">
                         <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-acc-a font-head text-sm font-extrabold tracking-tighter text-on-acc">
                             AH
                         </span>

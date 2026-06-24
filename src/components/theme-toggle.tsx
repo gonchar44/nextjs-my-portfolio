@@ -14,8 +14,7 @@ export function ThemeToggle() {
             <span
                 className="h-4 w-4 rounded-full border-2 border-text"
                 style={{
-                    background:
-                        "linear-gradient(90deg, var(--text) 0 50%, transparent 50% 100%)",
+                    background: "linear-gradient(90deg, var(--text) 0 50%, transparent 50% 100%)",
                 }}
             />
         </button>
