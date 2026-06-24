@@ -123,6 +123,8 @@
 body {
     margin: 0;
     font-family: var(--body-font);
+    background: var(--bg);
+    color: var(--text);
 }
 
 h1,
