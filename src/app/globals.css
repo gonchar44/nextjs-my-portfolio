@@ -109,6 +109,19 @@
     }
 }
 
+/* ─── Terminal cursor ────────────────────────────────────────────────────── */
+
+.terminal-cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1.05em;
+    background: var(--acc-a);
+    margin-left: 4px;
+    vertical-align: text-bottom;
+    animation: blink 1s step-end infinite;
+    flex-shrink: 0;
+}
+
 /* ─── Base ───────────────────────────────────────────────────────────────── */
 
 *,
