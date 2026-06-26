@@ -16,19 +16,19 @@ interface MobileMenuProps {
 export function MobileMenu({ navLinks }: MobileMenuProps) {
     const [open, setOpen] = useState(false);
 
-    // useEffect(() => {
-    //     if (!open) return;
-    //     const onScroll = () => setOpen(false);
-    //     const onKey = (e: KeyboardEvent) => {
-    //         if (e.key === "Escape") setOpen(false);
-    //     };
-    //     window.addEventListener("scroll", onScroll, { passive: true });
-    //     document.addEventListener("keydown", onKey);
-    //     return () => {
-    //         window.removeEventListener("scroll", onScroll);
-    //         document.removeEventListener("keydown", onKey);
-    //     };
-    // }, [open]);
+    useEffect(() => {
+        if (!open) return;
+        const onScroll = () => setOpen(false);
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") setOpen(false);
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        document.addEventListener("keydown", onKey);
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            document.removeEventListener("keydown", onKey);
+        };
+    }, [open]);
 
     return (
         <div className="md:hidden">
