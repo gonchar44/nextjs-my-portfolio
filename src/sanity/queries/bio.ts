@@ -1,13 +1,13 @@
 import { groq } from "next-sanity";
 
 export const bioQuery = groq`*[_type == "bio"][0] {
-  headline,
-  summary,
-  location,
-  experience,
-  devFocus,
-  languages,
-  "status": status,
+  "headline": coalesce(headline, ""),
+  "summary": coalesce(summary, []),
+  "location": coalesce(location, ""),
+  "experience": coalesce(experience, ""),
+  "devFocus": coalesce(devFocus, []),
+  "languages": coalesce(languages, []),
+  "status": coalesce(status, ""),
   "statusLabel": select(
     status == "open_to_work"   => "Open to work",
     status == "employed"       => "Employed, not looking",
