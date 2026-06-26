@@ -3,8 +3,8 @@ interface StatsPanelProps {
     experience: string;
     devFocus: string[];
     languages: string[];
-    status: string;
-    statusColor: string;
+    status?: string;
+    statusColor?: string;
 }
 
 export function StatsPanel({ location, experience, devFocus, languages, status, statusColor }: StatsPanelProps) {
@@ -32,23 +32,25 @@ export function StatsPanel({ location, experience, devFocus, languages, status, 
                 </div>
             ))}
 
-            {/* Status row */}
-            <div className="flex justify-between gap-4 px-5 py-4">
-                <span className="text-xs text-faint">status</span>
-                <span
-                    className="inline-flex min-w-0 items-center gap-1.5 break-words text-sm"
-                    style={{ color: statusColor }}
-                >
+            {/* Status row — omitted when no status is set */}
+            {status && statusColor && (
+                <div className="flex justify-between gap-4 px-5 py-4">
+                    <span className="text-xs text-faint">status</span>
                     <span
-                        className="w-2 h-2 rounded-full flex-none"
-                        style={{
-                            background: statusColor,
-                            boxShadow: `0 0 0 4px color-mix(in srgb, ${statusColor} 22%, transparent)`,
-                        }}
-                    />
-                    {status}
-                </span>
-            </div>
+                        className="inline-flex min-w-0 items-center gap-1.5 break-words text-sm"
+                        style={{ color: statusColor }}
+                    >
+                        <span
+                            className="w-2 h-2 rounded-full flex-none"
+                            style={{
+                                background: statusColor,
+                                boxShadow: `0 0 0 4px color-mix(in srgb, ${statusColor} 22%, transparent)`,
+                            }}
+                        />
+                        {status}
+                    </span>
+                </div>
+            )}
         </div>
     );
 }

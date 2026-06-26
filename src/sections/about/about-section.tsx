@@ -50,8 +50,9 @@ export async function AboutSection() {
                             experience={bio.experience}
                             devFocus={bio.devFocus}
                             languages={bio.languages}
-                            status={bio.statusLabel}
-                            statusColor={STATUS_COLORS[bio.status] ?? "#93d8aa"}
+                            {...(bio.statusLabel
+                                ? { status: bio.statusLabel, statusColor: STATUS_COLORS[bio.status] }
+                                : {})}
                         />
                     </Reveal>
                 </div>
