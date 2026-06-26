@@ -8,24 +8,27 @@ const PHRASES: [string, ...string[]] = [
 
 export function HeroSection() {
     return (
-        <section className="px-7 py-20 scroll-mt-24">
+        <section className="px-4 py-12 sm:px-7 sm:py-20 scroll-mt-24">
             <div className="mx-auto max-w-4xl border border-border rounded-2xl bg-panel overflow-hidden shadow-panel">
                 {/* Title bar */}
                 <div
                     className="flex items-center gap-2 px-4 py-3 border-b border-border"
                     style={{ background: "color-mix(in srgb, var(--panel-2) 70%, transparent)" }}
                 >
-                    <span className="w-3 h-3 rounded-full" style={{ background: "#ff5f57" }} />
-                    <span className="w-3 h-3 rounded-full" style={{ background: "#febc2e" }} />
-                    <span className="w-3 h-3 rounded-full" style={{ background: "#28c840" }} />
-                    <span className="flex-1 text-center font-head text-faint" style={{ fontSize: "12.5px" }}>
+                    <span className="w-3 h-3 rounded-full shrink-0" style={{ background: "#ff5f57" }} />
+                    <span className="w-3 h-3 rounded-full shrink-0" style={{ background: "#febc2e" }} />
+                    <span className="w-3 h-3 rounded-full shrink-0" style={{ background: "#28c840" }} />
+                    <span
+                        className="flex-1 min-w-0 text-center font-head text-faint truncate"
+                        style={{ fontSize: "12.5px" }}
+                    >
                         artem@denmark: ~/portfolio — zsh
                     </span>
-                    <span className="w-14" />
+                    <span className="w-9 sm:w-14 shrink-0" />
                 </div>
 
                 {/* Body */}
-                <div className="px-10 pt-10 pb-11 font-head">
+                <div className="px-5 pt-7 pb-8 sm:px-10 sm:pt-10 sm:pb-11 font-head">
                     {/* whoami prompt */}
                     <div className="text-sm text-muted leading-loose">
                         <span className="text-acc-b">artem@denmark</span>
@@ -59,7 +62,7 @@ export function HeroSection() {
                     </div>
 
                     {/* CTA buttons */}
-                    <div className="flex flex-wrap gap-3.5 mt-8">
+                    <div className="flex flex-wrap gap-3 sm:gap-3.5 mt-8">
                         <a
                             href="#projects"
                             className="inline-flex items-center gap-2.5 font-head text-sm font-semibold px-6 py-3.5 rounded-full bg-acc-a text-on-acc no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-12px_var(--acc-a)]"
