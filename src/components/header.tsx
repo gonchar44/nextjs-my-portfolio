@@ -1,4 +1,5 @@
 import { ButtonLink } from "@/components/button";
+import { MobileMenu } from "@/components/mobile-menu";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const navLinks = [
@@ -11,7 +12,7 @@ const navLinks = [
 export function Header() {
     return (
         <header
-            className="sticky top-0 z-50 border-b border-border backdrop-blur-lg"
+            className="sticky top-0 z-50 relative border-b border-border backdrop-blur-lg"
             style={{
                 background: "color-mix(in srgb, var(--bg) 78%, transparent)",
             }}
@@ -31,22 +32,30 @@ export function Header() {
                     {/* Spacer */}
                     <div className="flex-1" />
 
-                    {/* Nav links */}
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.href}
-                            href={link.href}
-                            className="rounded-lg px-3 py-2 font-head text-xs text-muted no-underline transition-colors duration-200 hover:text-text"
-                        >
-                            {link.label}
-                        </a>
-                    ))}
+                    {/* Nav links — desktop */}
+                    <div className="hidden md:flex items-center">
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.href}
+                                href={link.href}
+                                className="rounded-lg px-3 py-2 font-head text-xs text-muted no-underline transition-colors duration-200 hover:text-text"
+                            >
+                                {link.label}
+                            </a>
+                        ))}
+                    </div>
 
                     <ThemeToggle />
 
-                    <ButtonLink href="#contact" variant="primary" size="sm">
-                        Get in touch
-                    </ButtonLink>
+                    {/* CTA — desktop */}
+                    <div className="hidden md:block">
+                        <ButtonLink href="#contact" variant="primary" size="sm">
+                            Get in touch
+                        </ButtonLink>
+                    </div>
+
+                    {/* Hamburger — mobile */}
+                    <MobileMenu navLinks={navLinks} />
                 </div>
             </nav>
         </header>

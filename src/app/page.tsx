@@ -1,3 +1,9 @@
+import { HeroSection } from "@/sections/hero/hero-section";
+
 export default function IndexPage() {
-    return <main></main>;
+    return (
+        <main>
+            <HeroSection />
+        </main>
+    );
 }

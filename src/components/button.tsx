@@ -6,6 +6,7 @@ interface ButtonLinkProps {
     size?: "sm" | "lg";
     external?: boolean;
     className?: string;
+    onClick?: React.MouseEventHandler<HTMLAnchorElement>;
     children: React.ReactNode;
 }
 
@@ -15,6 +16,7 @@ export function ButtonLink({
     size = "lg",
     external = false,
     className,
+    onClick,
     children,
 }: ButtonLinkProps) {
     const externalProps = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
@@ -22,6 +24,7 @@ export function ButtonLink({
     return (
         <a
             href={href}
+            onClick={onClick}
             className={cn(
                 "inline-flex items-center rounded-full font-head font-semibold no-underline transition duration-200",
                 size === "sm" && "gap-2 py-2.5 px-4 text-xs",
