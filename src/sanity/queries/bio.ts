@@ -7,13 +7,13 @@ export const bioQuery = groq`*[_type == "bio"][0] {
   experience,
   devFocus,
   languages,
-  "status": select(defined(status.value) => status.value, ""),
+  "status": status,
   "statusLabel": select(
-    status.value == "open_to_work"   => "Open to work",
-    status.value == "employed"       => "Employed, not looking",
-    status.value == "freelance"      => "Available for freelance",
-    status.value == "open_to_collab" => "Open to collaboration",
-    status.value == "on_break"       => "On a break",
+    status == "open_to_work"   => "Open to work",
+    status == "employed"       => "Employed, not looking",
+    status == "freelance"      => "Available for freelance",
+    status == "open_to_collab" => "Open to collaboration",
+    status == "on_break"       => "On a break",
     ""
   )
 }`;
