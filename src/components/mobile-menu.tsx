@@ -80,6 +80,7 @@ export function MobileMenu({ navLinks }: MobileMenuProps) {
                                     variant="primary"
                                     size="sm"
                                     className="w-full justify-center"
+                                    onClick={() => setOpen(false)}
                                 >
                                     Get in touch
                                 </ButtonLink>
