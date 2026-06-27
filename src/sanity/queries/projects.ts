@@ -21,7 +21,7 @@ export type ProjectsQueryResult = {
     _id: string;
     title: string;
     description: string;
-    screenshots: SanityImage[];
+    screenshots?: SanityImage[] | null;
     techStack: string[];
     githubUrl: string;
     liveDemoUrl?: string | null;

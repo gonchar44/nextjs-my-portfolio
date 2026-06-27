@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import type { ProjectsQueryResult } from "@/sanity/queries/projects";
+import { ProjectCardFallback } from "./project-card-fallback";
 
 type Project = ProjectsQueryResult[number];
 
@@ -11,9 +12,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project, index }: ProjectCardProps) {
     const screenshot = project.screenshots?.[0];
-    const screenshotUrl = screenshot
-        ? urlFor(screenshot).width(1200).height(600).fit("crop").url()
-        : null;
+    const screenshotUrl = screenshot ? urlFor(screenshot).fit("crop").url() : null;
     const indexLabel = String(index + 1).padStart(2, "0");
 
     return (
@@ -27,10 +26,10 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 1200px"
                     />
-                ) : null}
-                <span className="absolute top-4 left-4 font-head text-xs text-acc-b">
-                    {indexLabel}
-                </span>
+                ) : (
+                    <ProjectCardFallback />
+                )}
+                <span className="absolute top-4 left-4 font-head text-xs text-acc-b">{indexLabel}</span>
             </div>
 
             <div className="px-6 py-5 flex items-center gap-5 flex-wrap">

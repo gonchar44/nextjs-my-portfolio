@@ -8,11 +8,7 @@ export async function ProjectsSection() {
     let projects: ProjectsQueryResult = [];
 
     try {
-        projects = await client.fetch<ProjectsQueryResult>(
-            projectsQuery,
-            {},
-            { next: { tags: ["projects"] } },
-        );
+        projects = await client.fetch<ProjectsQueryResult>(projectsQuery, {}, { next: { tags: ["projects"] } });
     } catch (err) {
         console.error("[ProjectsSection] fetch failed:", err);
     }
