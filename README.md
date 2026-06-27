@@ -4,15 +4,15 @@ Personal developer portfolio built with Next.js and powered by Sanity CMS. Conte
 
 ## Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | Next.js 16 (App Router) |
-| Language | TypeScript (strict) |
-| Styling | Tailwind CSS v4 |
-| Animations | Motion for React (`motion/react`) |
-| CMS | Sanity (`next-sanity`, `@sanity/image-url`) |
-| Runtime | React 19 |
-| Deployment | Vercel |
+| Layer      | Technology                                  |
+| ---------- | ------------------------------------------- |
+| Framework  | Next.js 16 (App Router)                     |
+| Language   | TypeScript (strict)                         |
+| Styling    | Tailwind CSS v4                             |
+| Animations | Motion for React (`motion/react`)           |
+| CMS        | Sanity (`next-sanity`, `@sanity/image-url`) |
+| Runtime    | React 19                                    |
+| Deployment | Vercel                                      |
 
 ## Features
 
@@ -78,13 +78,13 @@ src/
 
 All portfolio content lives in Sanity:
 
-| Content type | What it controls |
-|---|---|
-| `skill` | Technology badges grouped by category |
-| `project` | Project cards (title, description, tech stack, links, screenshot) |
-| `experience` | Timeline entries (role, company, period, highlights) |
-| `about` | Bio text and quick-stats panel |
-| `siteSettings` | LinkedIn / GitHub URLs, hero typewriter phrases |
+| Content type   | What it controls                                                  |
+| -------------- | ----------------------------------------------------------------- |
+| `skill`        | Technology badges grouped by category                             |
+| `project`      | Project cards (title, description, tech stack, links, screenshot) |
+| `experience`   | Timeline entries (role, company, period, highlights)              |
+| `about`        | Bio text and quick-stats panel                                    |
+| `siteSettings` | LinkedIn / GitHub URLs, hero typewriter phrases                   |
 
 Edit content at http://localhost:3000/studio locally, or at the hosted Studio URL after deployment.
 
@@ -96,6 +96,6 @@ The project is intended to deploy to Vercel.
 
 1. Push to GitHub and import the repository in [Vercel](https://vercel.com/new)
 2. Add the environment variables in the Vercel project settings:
-   - `NEXT_PUBLIC_SANITY_PROJECT_ID`
-   - `NEXT_PUBLIC_SANITY_DATASET`
+    - `NEXT_PUBLIC_SANITY_PROJECT_ID`
+    - `NEXT_PUBLIC_SANITY_DATASET`
 3. Set up a Sanity webhook pointing to your revalidation route so content changes go live instantly without a redeploy
