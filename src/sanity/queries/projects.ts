@@ -5,7 +5,7 @@ export const projectsQuery = groq`*[_type == "project"] | order(_createdAt asc) 
     title,
     description,
     screenshots,
-    techStack,
+    "techStack": coalesce(techStack, []),
     githubUrl,
     liveDemoUrl,
 }`;
