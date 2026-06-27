@@ -5,13 +5,7 @@ import { projectsQuery, type ProjectsQueryResult } from "@/sanity/queries/projec
 import { ProjectCard } from "./project-card";
 
 export async function ProjectsSection() {
-    let projects: ProjectsQueryResult = [];
-
-    try {
-        projects = await client.fetch<ProjectsQueryResult>(projectsQuery, {}, { next: { tags: ["projects"] } });
-    } catch (err) {
-        console.error("[ProjectsSection] fetch failed:", err);
-    }
+    const projects = await client.fetch<ProjectsQueryResult>(projectsQuery, {}, { next: { tags: ["projects"] } });
 
     if (!projects?.length) return null;
 
