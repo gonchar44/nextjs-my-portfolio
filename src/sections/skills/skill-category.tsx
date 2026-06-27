@@ -6,7 +6,7 @@ interface SkillCategoryProps {
 export function SkillCategory({ category, items }: SkillCategoryProps) {
     return (
         <div>
-            <div className="font-head text-xs tracking-widest uppercase text-faint mb-3">// {category}</div>
+            <div className="font-head text-xs tracking-widest uppercase text-faint mb-3">{"// "}{category}</div>
             <div className="flex flex-wrap gap-1.5">
                 {items.map((skill) => (
                     <span
