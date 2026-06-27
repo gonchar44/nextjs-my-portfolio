@@ -44,9 +44,12 @@ Create a `.env.local` file in the project root:
 ```env
 NEXT_PUBLIC_SANITY_PROJECT_ID=your_project_id
 NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_REVALIDATE_SECRET=your_secret_here
 ```
 
 You can find your project ID in the [Sanity manage dashboard](https://sanity.io/manage).
+
+`SANITY_REVALIDATE_SECRET` is a secret string you choose. It is checked by the revalidation webhook route (`/api/revalidate`) — requests without the correct value are rejected with a 401.
 
 ### Run the Dev Server
 
@@ -98,4 +101,11 @@ The project is intended to deploy to Vercel.
 2. Add the environment variables in the Vercel project settings:
     - `NEXT_PUBLIC_SANITY_PROJECT_ID`
     - `NEXT_PUBLIC_SANITY_DATASET`
-3. Set up a Sanity webhook pointing to your revalidation route so content changes go live instantly without a redeploy
+    - `SANITY_REVALIDATE_SECRET` — the same secret value used in the webhook (see step 3)
+3. Set up a Sanity webhook for on-demand revalidation:
+    - URL: `https://<your-vercel-domain>/api/revalidate`
+    - HTTP method: `POST`
+    - Add an HTTP header: `x-sanity-webhook-secret` set to the same value as `SANITY_REVALIDATE_SECRET`
+    - Trigger on: document publish / unpublish events
+
+   The route (`src/app/api/revalidate/route.ts`) validates this header and returns 401 if it is missing or does not match.
