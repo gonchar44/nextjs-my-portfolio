@@ -4,3 +4,4 @@ reviews:
     drafts: false
     base_branches:
       - "dev"
+      - "main"
