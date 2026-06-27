@@ -12,7 +12,7 @@ const navLinks = [
 export function Header() {
     return (
         <header
-            className="sticky top-0 z-50 relative border-b border-border backdrop-blur-lg"
+            className="sticky top-0 z-50 border-b border-border backdrop-blur-lg"
             style={{
                 background: "color-mix(in srgb, var(--bg) 78%, transparent)",
             }}
