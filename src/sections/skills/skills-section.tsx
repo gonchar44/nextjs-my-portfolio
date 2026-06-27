@@ -6,12 +6,17 @@ import { ServiceCard } from "./service-card";
 import { SkillCategory } from "./skill-category";
 
 export async function SkillsSection() {
-    const [services, skills] = await Promise.all([
+    const [servicesResult, skillsResult] = await Promise.allSettled([
         client.fetch<ServicesQueryResult>(servicesQuery, {}, { next: { tags: ["services"] } }),
         client.fetch<SkillsQueryResult>(skillsQuery, {}, { next: { tags: ["skills"] } }),
     ]);
 
-    if (!services && !skills) return null;
+    const services = servicesResult.status === "fulfilled" ? servicesResult.value : null;
+    const skills = skillsResult.status === "fulfilled" ? skillsResult.value : null;
+    const hasServices = !!services?.items?.length;
+    const hasSkills = !!skills?.categories?.length;
+
+    if (!hasServices && !hasSkills) return null;
 
     return (
         <section id="skills" className="px-7 py-16 border-t border-border scroll-mt-24">
@@ -25,7 +30,7 @@ export async function SkillsSection() {
                     </h2>
                 </Reveal>
 
-                {services && services.items.length > 0 && (
+                {hasServices && (
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-9">
                         {services.items.map((item, i) => (
                             <Reveal key={item._key} delay={i * 90}>
@@ -35,7 +40,7 @@ export async function SkillsSection() {
                     </div>
                 )}
 
-                {skills && skills.categories.length > 0 && (
+                {hasSkills && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 mt-8">
                         {skills.categories.map((cat, i) => (
                             <Reveal key={cat._key} delay={i * 70}>
