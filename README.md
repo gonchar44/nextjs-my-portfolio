@@ -108,4 +108,4 @@ The project is intended to deploy to Vercel.
     - Add an HTTP header: `x-sanity-webhook-secret` set to the same value as `SANITY_REVALIDATE_SECRET`
     - Trigger on: document publish / unpublish events
 
-   The route (`src/app/api/revalidate/route.ts`) validates this header and returns 401 if it is missing or does not match.
+    The route (`src/app/api/revalidate/route.ts`) validates this header and returns 401 if it is missing or does not match.
