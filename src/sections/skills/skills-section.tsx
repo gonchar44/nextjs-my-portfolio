@@ -23,9 +23,7 @@ export async function SkillsSection() {
             <div className="mx-auto max-w-6xl">
                 <Reveal>
                     <SectionLabel number="02" label="Skills & services" />
-                    <h2
-                        className="section-heading font-head font-bold tracking-tight text-text leading-tight mt-3.5"
-                    >
+                    <h2 className="section-heading font-head font-bold tracking-tight text-text leading-tight mt-3.5">
                         Things I can help you with
                     </h2>
                 </Reveal>

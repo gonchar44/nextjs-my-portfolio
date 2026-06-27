@@ -20,9 +20,7 @@ export async function AboutSection() {
                 <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-14 mt-6 items-start">
                     {/* Left: bio */}
                     <Reveal delay={80}>
-                        <h2
-                            className="section-heading font-head font-bold tracking-tight text-text leading-tight mb-5"
-                        >
+                        <h2 className="section-heading font-head font-bold tracking-tight text-text leading-tight mb-5">
                             {bio.headline}
                         </h2>
                         <PortableText
