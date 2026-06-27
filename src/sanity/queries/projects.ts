@@ -8,6 +8,7 @@ export const projectsQuery = groq`*[_type == "project"] | order(_createdAt asc) 
     "techStack": coalesce(techStack, []),
     githubUrl,
     liveDemoUrl,
+    status,
 }`;
 
 export type SanityImage = {
@@ -25,4 +26,5 @@ export type ProjectsQueryResult = {
     techStack: string[];
     githubUrl: string;
     liveDemoUrl?: string | null;
+    status?: "in_development" | "completed" | null;
 }[];
