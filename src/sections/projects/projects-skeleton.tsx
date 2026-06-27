@@ -7,7 +7,19 @@ export function ProjectsSkeleton() {
 
                 <div className="flex flex-col gap-6">
                     {[0, 1, 2].map((i) => (
-                        <div key={i} className="rounded-xl bg-panel h-64 w-full" />
+                        <div key={i} className="rounded-2xl bg-panel border border-border overflow-hidden w-full">
+                            <div className="h-72 bg-panel-2" />
+                            <div className="px-6 py-5 flex flex-col gap-3">
+                                <div className="h-5 w-48 rounded bg-panel-2" />
+                                <div className="h-3 w-full rounded bg-panel-2" />
+                                <div className="h-3 w-3/4 rounded bg-panel-2" />
+                                <div className="flex gap-1.5 mt-1">
+                                    <div className="h-5 w-12 rounded bg-panel-2" />
+                                    <div className="h-5 w-14 rounded bg-panel-2" />
+                                    <div className="h-5 w-10 rounded bg-panel-2" />
+                                </div>
+                            </div>
+                        </div>
                     ))}
                 </div>
             </div>
