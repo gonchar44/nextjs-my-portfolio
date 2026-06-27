@@ -21,8 +21,7 @@ export async function AboutSection() {
                     {/* Left: bio */}
                     <Reveal delay={80}>
                         <h2
-                            className="font-head font-bold tracking-tight text-text leading-tight mb-5"
-                            style={{ fontSize: "clamp(26px, 3.6vw, 40px)" }}
+                            className="section-heading font-head font-bold tracking-tight text-text leading-tight mb-5"
                         >
                             {bio.headline}
                         </h2>
