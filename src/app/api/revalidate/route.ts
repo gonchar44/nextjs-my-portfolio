@@ -2,9 +2,13 @@ import { revalidatePath } from "next/cache";
 import { type NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: NextRequest) {
-    const secret = req.headers.get("x-sanity-webhook-secret");
+    const configuredSecret = process.env.SANITY_REVALIDATE_SECRET;
+    if (!configuredSecret) {
+        return NextResponse.json({ message: "Server misconfiguration" }, { status: 500 });
+    }
 
-    if (secret !== process.env.SANITY_REVALIDATE_SECRET) {
+    const secret = req.headers.get("x-sanity-webhook-secret");
+    if (!secret || !secret.trim() || secret !== configuredSecret) {
         return NextResponse.json({ message: "Invalid secret" }, { status: 401 });
     }
 
