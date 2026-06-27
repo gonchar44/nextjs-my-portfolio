@@ -11,6 +11,13 @@ export async function SkillsSection() {
         client.fetch<SkillsQueryResult>(skillsQuery, {}, { next: { tags: ["skills"] } }),
     ]);
 
+    if (servicesResult.status === "rejected") {
+        console.error("[SkillsSection] services fetch failed:", servicesResult.reason);
+    }
+    if (skillsResult.status === "rejected") {
+        console.error("[SkillsSection] skills fetch failed:", skillsResult.reason);
+    }
+
     const services = servicesResult.status === "fulfilled" ? servicesResult.value : null;
     const skills = skillsResult.status === "fulfilled" ? skillsResult.value : null;
     const hasServices = !!services?.items?.length;
