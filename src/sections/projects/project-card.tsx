@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { Badge } from "@/components/badge";
 import { cn } from "@/lib/cn";
 import { urlFor } from "@/sanity/lib/image";
 import type { ProjectsQueryResult } from "@/sanity/queries/projects";
@@ -55,12 +56,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                     <p className="text-sm text-muted mt-2 leading-relaxed">{project.description}</p>
                     <div className="flex gap-1.5 flex-wrap mt-3">
                         {project.techStack.map((tech) => (
-                            <span
-                                key={tech}
-                                className="font-head text-xs text-muted border border-border px-2 py-1 rounded"
-                            >
-                                {tech}
-                            </span>
+                            <Badge key={tech}>{tech}</Badge>
                         ))}
                     </div>
                 </div>
