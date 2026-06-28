@@ -24,11 +24,7 @@ export async function ExperienceSection() {
                 <div className="mt-10">
                     {positions.map((position, i) => (
                         <Reveal key={position._key} delay={i * 60} direction={i % 2 === 0 ? "left" : "right"}>
-                            <ExperienceItem
-                                position={position}
-                                index={i}
-                                isLast={i === positions.length - 1}
-                            />
+                            <ExperienceItem position={position} index={i} isLast={i === positions.length - 1} />
                         </Reveal>
                     ))}
                 </div>

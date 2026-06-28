@@ -28,9 +28,7 @@ const descriptionComponents = {
         ),
     },
     list: {
-        bullet: ({ children }: { children?: React.ReactNode }) => (
-            <ul className="flex flex-col gap-2">{children}</ul>
-        ),
+        bullet: ({ children }: { children?: React.ReactNode }) => <ul className="flex flex-col gap-2">{children}</ul>,
     },
     listItem: {
         bullet: ({ children }: { children?: React.ReactNode }) => (
@@ -55,17 +53,14 @@ export function ExperienceItem({ position, index, isLast }: ExperienceItemProps)
                         isEven ? "border-acc-a" : "border-acc-b",
                     )}
                 />
-                {!isLast && (
-                    <span className="absolute top-4 -bottom-3 w-px bg-border" />
-                )}
+                {!isLast && <span className="absolute top-4 -bottom-3 w-px bg-border" />}
             </div>
 
             {/* Content */}
             <div className="flex-1 pb-10">
                 <div className="flex justify-between gap-3.5 flex-wrap items-baseline">
                     <h3 className="font-head font-bold text-xl text-text m-0">
-                        {position.role} ·{" "}
-                        <span className="text-acc-a">{position.company}</span>
+                        {position.role} · <span className="text-acc-a">{position.company}</span>
                     </h3>
                     <span className="font-head text-xs text-muted border border-border px-2.5 py-1 rounded-full whitespace-nowrap">
                         {buildPeriodLabel(position)}
