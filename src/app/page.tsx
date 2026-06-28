@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { AboutSection } from "@/sections/about/about-section";
 import { ExperienceSection } from "@/sections/experience/experience-section";
+import { ExperienceSkeleton } from "@/sections/experience/experience-skeleton";
 import { HeroSection } from "@/sections/hero/hero-section";
 import { ProjectsSection } from "@/sections/projects/projects-section";
 import { ProjectsSkeleton } from "@/sections/projects/projects-skeleton";
@@ -15,7 +16,9 @@ export default function HomePage() {
             <Suspense fallback={<ProjectsSkeleton />}>
                 <ProjectsSection />
             </Suspense>
-            <ExperienceSection />
+            <Suspense fallback={<ExperienceSkeleton />}>
+                <ExperienceSection />
+            </Suspense>
         </main>
     );
 }
