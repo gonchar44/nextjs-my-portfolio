@@ -7,7 +7,10 @@ export function ExperienceSkeleton() {
 
                 <div className="flex flex-col gap-8">
                     {[0, 1, 2].map((i) => (
-                        <div key={i} className="rounded-2xl bg-panel border border-border px-6 py-5 flex flex-col gap-3">
+                        <div
+                            key={i}
+                            className="rounded-2xl bg-panel border border-border px-6 py-5 flex flex-col gap-3"
+                        >
                             <div className="h-5 w-56 rounded bg-panel-2" />
                             <div className="h-3 w-40 rounded bg-panel-2" />
                             <div className="h-3 w-full rounded bg-panel-2 mt-1" />
