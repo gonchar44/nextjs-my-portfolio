@@ -80,12 +80,8 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                             Live ↗
                         </a>
                     ) : (
-                        <span
-                            aria-disabled="true"
-                            title="Not live yet"
-                            className="font-head text-xs font-semibold text-faint border border-border px-4 py-2.5 rounded-full cursor-not-allowed opacity-50"
-                        >
-                            Live ↗
+                        <span className="font-head text-xs font-semibold text-faint border border-border px-4 py-2.5 rounded-full opacity-50">
+                            Not live yet
                         </span>
                     )}
                 </div>
