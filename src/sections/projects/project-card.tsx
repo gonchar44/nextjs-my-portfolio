@@ -70,7 +70,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                     >
                         GitHub ↗
                     </a>
-                    {project.liveDemoUrl && (
+                    {project.liveDemoUrl ? (
                         <a
                             href={project.liveDemoUrl}
                             target="_blank"
@@ -79,6 +79,14 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                         >
                             Live ↗
                         </a>
+                    ) : (
+                        <span
+                            aria-disabled="true"
+                            title="Not live yet"
+                            className="font-head text-xs font-semibold text-faint border border-border px-4 py-2.5 rounded-full cursor-not-allowed opacity-50"
+                        >
+                            Live ↗
+                        </span>
                     )}
                 </div>
             </div>
