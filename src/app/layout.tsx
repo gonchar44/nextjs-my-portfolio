@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { jetBrainsMono, spaceGrotesk } from "@/lib/fonts";
+import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
@@ -33,6 +34,7 @@ export default function RootLayout({
                 <ThemeProvider>
                     <Header />
                     {children}
+                    <Footer />
                 </ThemeProvider>
             </body>
         </html>
