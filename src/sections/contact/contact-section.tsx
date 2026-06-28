@@ -45,6 +45,12 @@ export async function ContactSection() {
 
     if (!contacts) return null;
 
+    const hasEmail = Boolean(contacts.email);
+    const hasLinkedIn = Boolean(contacts.linkedin);
+    const hasGitHub = Boolean(contacts.github);
+
+    if (!hasEmail && !hasLinkedIn && !hasGitHub) return null;
+
     return (
         <section id="contact" className="px-7 py-20 border-t border-border scroll-mt-24">
             <div className="mx-auto max-w-6xl">
@@ -65,27 +71,37 @@ export async function ContactSection() {
                             </p>
 
                             <div className="flex flex-wrap gap-3.5 justify-center mt-9">
-                                <ButtonLink href={`mailto:${contacts.email}`} variant="primary" icon={<EmailIcon />}>
-                                    Email
-                                </ButtonLink>
+                                {hasEmail && (
+                                    <ButtonLink
+                                        href={`mailto:${contacts.email}`}
+                                        variant="primary"
+                                        icon={<EmailIcon />}
+                                    >
+                                        Email
+                                    </ButtonLink>
+                                )}
 
-                                <ButtonLink
-                                    href={contacts.linkedin}
-                                    variant="ghost"
-                                    icon={<LinkedInIcon />}
-                                    external={true}
-                                >
-                                    LinkedIn
-                                </ButtonLink>
+                                {hasLinkedIn && (
+                                    <ButtonLink
+                                        href={contacts.linkedin}
+                                        variant="ghost"
+                                        icon={<LinkedInIcon />}
+                                        external={true}
+                                    >
+                                        LinkedIn
+                                    </ButtonLink>
+                                )}
 
-                                <ButtonLink
-                                    href={contacts.github}
-                                    variant="ghost"
-                                    icon={<GitHubIcon />}
-                                    external={true}
-                                >
-                                    GitHub
-                                </ButtonLink>
+                                {hasGitHub && (
+                                    <ButtonLink
+                                        href={contacts.github}
+                                        variant="ghost"
+                                        icon={<GitHubIcon />}
+                                        external={true}
+                                    >
+                                        GitHub
+                                    </ButtonLink>
+                                )}
                             </div>
                         </div>
                     </div>
