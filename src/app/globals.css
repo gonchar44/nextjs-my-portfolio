@@ -160,3 +160,7 @@ h6 {
 @utility section-heading {
     font-size: clamp(1.625rem, 3.6vw, 2.5rem);
 }
+
+@utility contact-glow {
+    background: radial-gradient(60% 80% at 50% 0%, color-mix(in srgb, var(--acc-a) 12%, transparent), transparent 70%);
+}
