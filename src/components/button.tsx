@@ -4,6 +4,7 @@ interface ButtonLinkProps {
     href: string;
     variant?: "primary" | "ghost";
     size?: "sm" | "lg";
+    icon?: React.ReactNode;
     external?: boolean;
     className?: string;
     onClick?: React.MouseEventHandler<HTMLAnchorElement>;
@@ -14,6 +15,7 @@ export function ButtonLink({
     href,
     variant = "primary",
     size = "lg",
+    icon,
     external = false,
     className,
     onClick,
@@ -41,6 +43,7 @@ export function ButtonLink({
             )}
             {...externalProps}
         >
+            {icon}
             {children}
         </a>
     );

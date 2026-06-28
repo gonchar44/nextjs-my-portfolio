@@ -1,5 +1,6 @@
 import { ButtonLink } from "@/components/button";
 import { MobileMenu } from "@/components/mobile-menu";
+import { NavLink } from "@/components/nav-link";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const navLinks = [
@@ -11,12 +12,7 @@ const navLinks = [
 
 export function Header() {
     return (
-        <header
-            className="sticky top-0 z-50 border-b border-border backdrop-blur-lg"
-            style={{
-                background: "color-mix(in srgb, var(--bg) 78%, transparent)",
-            }}
-        >
+        <header className="sticky top-0 z-50 border-b border-border backdrop-blur-lg header-bg">
             <nav>
                 <div className="mx-auto flex max-w-6xl items-center gap-4 px-7 py-3.5">
                     {/* Logo */}
@@ -35,13 +31,9 @@ export function Header() {
                     {/* Nav links — desktop */}
                     <div className="hidden md:flex items-center">
                         {navLinks.map((link) => (
-                            <a
-                                key={link.href}
-                                href={link.href}
-                                className="rounded-lg px-3 py-2 font-head text-xs text-muted no-underline transition-colors duration-200 hover:text-text"
-                            >
+                            <NavLink key={link.href} href={link.href}>
                                 {link.label}
-                            </a>
+                            </NavLink>
                         ))}
                     </div>
 

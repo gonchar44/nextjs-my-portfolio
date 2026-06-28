@@ -88,6 +88,11 @@
     /* shadows */
     --shadow-panel: var(--shadow);
 
+    /* macOS terminal dot colors */
+    --color-mac-red: #ff5f57;
+    --color-mac-yellow: #febc2e;
+    --color-mac-green: #28c840;
+
     /* keyframes */
     --animate-blink: blink 1s step-end infinite;
     --animate-floaty: floaty 3s ease-in-out infinite;
@@ -159,4 +164,47 @@ h6 {
 
 @utility section-heading {
     font-size: clamp(1.625rem, 3.6vw, 2.5rem);
+}
+
+@utility contact-glow {
+    background: radial-gradient(60% 80% at 50% 0%, color-mix(in srgb, var(--acc-a) 12%, transparent), transparent 70%);
+}
+
+@utility header-bg {
+    background: color-mix(in srgb, var(--bg) 78%, transparent);
+}
+
+@utility mobile-menu-bg {
+    background: color-mix(in srgb, var(--bg) 92%, transparent);
+}
+
+@utility terminal-titlebar-bg {
+    background: color-mix(in srgb, var(--panel-2) 70%, transparent);
+}
+
+@utility status-badge-bg {
+    background: color-mix(in srgb, var(--bg) 72%, transparent);
+}
+
+@utility card-fallback-pattern {
+    background-image: repeating-linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--text) 4%, transparent) 0 1.5px,
+        transparent 1.5px 13px
+    );
+}
+
+@utility theme-toggle-icon {
+    background: linear-gradient(90deg, var(--text) 0 50%, transparent 50% 100%);
+}
+
+@utility hero-heading {
+    font-size: clamp(40px, 8.4vw, 82px);
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+}
+
+@utility typewriter-text {
+    font-size: clamp(20px, 3.6vw, 34px);
+    min-height: 2.6em;
 }

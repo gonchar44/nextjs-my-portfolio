@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Badge } from "@/components/badge";
+import { ButtonLink } from "@/components/button";
 import { cn } from "@/lib/cn";
 import { urlFor } from "@/sanity/lib/image";
 import type { ProjectsQueryResult } from "@/sanity/queries/projects";
@@ -33,10 +34,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 )}
                 <span className="absolute top-4 left-4 font-head text-xs text-acc-b">{indexLabel}</span>
                 {project.status && (
-                    <span
-                        className="absolute top-3.5 right-4 inline-flex items-center gap-1.5 font-head text-xs font-medium text-text border border-border-2 pl-2.5 pr-3 py-1 rounded-full backdrop-blur"
-                        style={{ background: "color-mix(in srgb, var(--bg) 72%, transparent)" }}
-                    >
+                    <span className="absolute top-3.5 right-4 inline-flex items-center gap-1.5 font-head text-xs font-medium text-text border border-border-2 pl-2.5 pr-3 py-1 rounded-full backdrop-blur status-badge-bg">
                         <span
                             className={cn(
                                 "size-2 rounded-full shrink-0",
@@ -62,23 +60,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 </div>
 
                 <div className="flex items-center gap-2.5">
-                    <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-head text-xs font-semibold text-text border border-border-2 px-4 py-2.5 rounded-full transition-colors hover:border-acc-a"
-                    >
+                    <ButtonLink href={project.githubUrl} variant="ghost" size="sm" external={true}>
                         GitHub ↗
-                    </a>
+                    </ButtonLink>
                     {project.liveDemoUrl ? (
-                        <a
-                            href={project.liveDemoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-head text-xs font-semibold text-on-acc bg-acc-a px-4 py-2.5 rounded-full transition-transform hover:-translate-y-px"
-                        >
+                        <ButtonLink href={project.liveDemoUrl} variant="primary" size="sm" external={true}>
                             Live ↗
-                        </a>
+                        </ButtonLink>
                     ) : (
                         <span className="font-head text-xs font-semibold text-faint border border-border px-4 py-2.5 rounded-full opacity-50">
                             Not live yet
