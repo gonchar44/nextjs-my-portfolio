@@ -35,5 +35,5 @@ export type ExperiencePosition = {
 };
 
 export type ExperienceQueryResult = {
-    positions: ExperiencePosition[];
+    positions?: ExperiencePosition[] | null;
 } | null;
