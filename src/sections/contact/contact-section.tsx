@@ -1,3 +1,4 @@
+import { ButtonLink } from "@/components/button";
 import { Reveal } from "@/components/reveal";
 import { SectionLabel } from "@/components/section-label";
 import { client } from "@/sanity/client";
@@ -64,36 +65,27 @@ export async function ContactSection() {
                             </p>
 
                             <div className="flex flex-wrap gap-3.5 justify-center mt-9">
-                                {/* Email — primary filled */}
-                                <a
-                                    href={`mailto:${contacts.email}`}
-                                    className="inline-flex items-center gap-2.5 font-head text-sm font-semibold px-7 py-3.5 rounded-full bg-acc-a text-[#14151a] no-underline shadow-none transition-transform duration-200 hover:-translate-y-0.5"
-                                >
-                                    <EmailIcon />
+                                <ButtonLink href={`mailto:${contacts.email}`} variant="primary" icon={<EmailIcon />}>
                                     Email
-                                </a>
+                                </ButtonLink>
 
-                                {/* LinkedIn — ghost */}
-                                <a
+                                <ButtonLink
                                     href={contacts.linkedin}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2.5 font-head text-sm font-semibold px-7 py-3.5 rounded-full bg-transparent text-text border border-border-2 no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-acc-a"
+                                    variant="ghost"
+                                    icon={<LinkedInIcon />}
+                                    external={true}
                                 >
-                                    <LinkedInIcon />
                                     LinkedIn
-                                </a>
+                                </ButtonLink>
 
-                                {/* GitHub — ghost */}
-                                <a
+                                <ButtonLink
                                     href={contacts.github}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2.5 font-head text-sm font-semibold px-7 py-3.5 rounded-full bg-transparent text-text border border-border-2 no-underline transition-all duration-200 hover:-translate-y-0.5 hover:border-acc-a"
+                                    variant="ghost"
+                                    icon={<GitHubIcon />}
+                                    external={true}
                                 >
-                                    <GitHubIcon />
                                     GitHub
-                                </a>
+                                </ButtonLink>
                             </div>
                         </div>
                     </div>

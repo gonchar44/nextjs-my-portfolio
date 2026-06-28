@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ButtonLink } from "@/components/button";
+import { NavLink } from "@/components/nav-link";
 import { cn } from "@/lib/cn";
 
 interface NavLink {
@@ -59,14 +60,14 @@ export function MobileMenu({ navLinks }: MobileMenuProps) {
                     <div className="absolute left-0 right-0 top-full z-50 border-b border-border mobile-menu-bg backdrop-blur-lg">
                         <div className="mx-auto flex max-w-6xl flex-col px-7 py-4">
                             {navLinks.map((link) => (
-                                <a
+                                <NavLink
                                     key={link.href}
                                     href={link.href}
                                     onClick={() => setOpen(false)}
-                                    className="rounded-lg px-3 py-3 font-head text-sm text-muted no-underline transition-colors duration-200 hover:bg-panel hover:text-text"
+                                    className="py-3 text-sm hover:bg-panel hover:text-text"
                                 >
                                     {link.label}
-                                </a>
+                                </NavLink>
                             ))}
                             <div className="mt-3 border-t border-border pt-4">
                                 <ButtonLink

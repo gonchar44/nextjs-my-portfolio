@@ -1,3 +1,4 @@
+import { ButtonLink } from "@/components/button";
 import { TerminalOutput } from "./terminal-output";
 
 const PHRASES: [string, ...string[]] = [
@@ -54,18 +55,12 @@ export function HeroSection() {
 
                     {/* CTA buttons */}
                     <div className="flex flex-wrap gap-3 sm:gap-3.5 mt-8">
-                        <a
-                            href="#projects"
-                            className="inline-flex items-center gap-2.5 font-head text-sm font-semibold px-6 py-3.5 rounded-full bg-acc-a text-on-acc no-underline transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_14px_32px_-12px_var(--acc-a)]"
-                        >
+                        <ButtonLink href="#projects" variant="primary">
                             View my work →
-                        </a>
-                        <a
-                            href="#contact"
-                            className="inline-flex items-center gap-2.5 font-head text-sm font-semibold px-6 py-3.5 rounded-full border border-border-2 text-text no-underline transition-[transform,border-color] duration-200 hover:-translate-y-0.5 hover:border-acc-a"
-                        >
+                        </ButtonLink>
+                        <ButtonLink href="#contact" variant="ghost">
                             Get in touch
-                        </a>
+                        </ButtonLink>
                     </div>
 
                     {/* Tagline */}

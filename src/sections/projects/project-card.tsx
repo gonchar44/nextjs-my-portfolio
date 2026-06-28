@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Badge } from "@/components/badge";
+import { ButtonLink } from "@/components/button";
 import { cn } from "@/lib/cn";
 import { urlFor } from "@/sanity/lib/image";
 import type { ProjectsQueryResult } from "@/sanity/queries/projects";
@@ -59,23 +60,13 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 </div>
 
                 <div className="flex items-center gap-2.5">
-                    <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-head text-xs font-semibold text-text border border-border-2 px-4 py-2.5 rounded-full transition-colors hover:border-acc-a"
-                    >
+                    <ButtonLink href={project.githubUrl} variant="ghost" size="sm" external={true}>
                         GitHub ↗
-                    </a>
+                    </ButtonLink>
                     {project.liveDemoUrl ? (
-                        <a
-                            href={project.liveDemoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="font-head text-xs font-semibold text-on-acc bg-acc-a px-4 py-2.5 rounded-full transition-transform hover:-translate-y-px"
-                        >
+                        <ButtonLink href={project.liveDemoUrl} variant="primary" size="sm" external={true}>
                             Live ↗
-                        </a>
+                        </ButtonLink>
                     ) : (
                         <span className="font-head text-xs font-semibold text-faint border border-border px-4 py-2.5 rounded-full opacity-50">
                             Not live yet
