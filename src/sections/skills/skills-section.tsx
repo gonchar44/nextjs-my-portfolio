@@ -38,7 +38,7 @@ export async function SkillsSection() {
                 {hasServices && (
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-9">
                         {services.items.map((item, i) => (
-                            <Reveal key={item._key} delay={i * 90}>
+                            <Reveal key={item._key} delay={i * 90} className="h-full">
                                 <ServiceCard title={item.title} description={item.description} index={i} />
                             </Reveal>
                         ))}

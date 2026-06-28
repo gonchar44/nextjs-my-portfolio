@@ -1,3 +1,5 @@
+import { Badge } from "@/components/badge";
+
 interface SkillCategoryProps {
     category: string;
     items: string[];
@@ -12,12 +14,7 @@ export function SkillCategory({ category, items }: SkillCategoryProps) {
             </div>
             <div className="flex flex-wrap gap-1.5">
                 {items.map((skill, index) => (
-                    <span
-                        key={`${skill}-${index}`}
-                        className="font-head text-xs text-text bg-panel border border-border px-3 py-1.5 rounded-md"
-                    >
-                        {skill}
-                    </span>
+                    <Badge key={`${skill}-${index}`}>{skill}</Badge>
                 ))}
             </div>
         </div>
