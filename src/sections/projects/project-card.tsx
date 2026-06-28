@@ -33,10 +33,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
                 )}
                 <span className="absolute top-4 left-4 font-head text-xs text-acc-b">{indexLabel}</span>
                 {project.status && (
-                    <span
-                        className="absolute top-3.5 right-4 inline-flex items-center gap-1.5 font-head text-xs font-medium text-text border border-border-2 pl-2.5 pr-3 py-1 rounded-full backdrop-blur"
-                        style={{ background: "color-mix(in srgb, var(--bg) 72%, transparent)" }}
-                    >
+                    <span className="absolute top-3.5 right-4 inline-flex items-center gap-1.5 font-head text-xs font-medium text-text border border-border-2 pl-2.5 pr-3 py-1 rounded-full backdrop-blur status-badge-bg">
                         <span
                             className={cn(
                                 "size-2 rounded-full shrink-0",

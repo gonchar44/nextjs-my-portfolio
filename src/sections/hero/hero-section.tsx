@@ -11,17 +11,11 @@ export function HeroSection() {
         <section className="px-4 py-12 sm:px-7 sm:py-20 scroll-mt-24">
             <div className="mx-auto max-w-4xl border border-border rounded-2xl bg-panel overflow-hidden shadow-panel">
                 {/* Title bar */}
-                <div
-                    className="flex items-center gap-2 px-4 py-3 border-b border-border"
-                    style={{ background: "color-mix(in srgb, var(--panel-2) 70%, transparent)" }}
-                >
-                    <span className="w-3 h-3 rounded-full shrink-0" style={{ background: "#ff5f57" }} />
-                    <span className="w-3 h-3 rounded-full shrink-0" style={{ background: "#febc2e" }} />
-                    <span className="w-3 h-3 rounded-full shrink-0" style={{ background: "#28c840" }} />
-                    <span
-                        className="flex-1 min-w-0 text-center font-head text-faint truncate"
-                        style={{ fontSize: "12.5px" }}
-                    >
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-border terminal-titlebar-bg">
+                    <span className="w-3 h-3 rounded-full shrink-0 bg-mac-red" />
+                    <span className="w-3 h-3 rounded-full shrink-0 bg-mac-yellow" />
+                    <span className="w-3 h-3 rounded-full shrink-0 bg-mac-green" />
+                    <span className="flex-1 min-w-0 text-center font-head text-xs text-faint truncate">
                         artem@denmark: ~/portfolio — zsh
                     </span>
                     <span className="w-9 sm:w-14 shrink-0" />
@@ -38,10 +32,7 @@ export function HeroSection() {
                     </div>
 
                     {/* Name */}
-                    <h1
-                        className="font-head font-extrabold tracking-tighter leading-none mt-2.5 text-text"
-                        style={{ fontSize: "clamp(40px, 8.4vw, 82px)", letterSpacing: "-0.03em", lineHeight: "1.02" }}
-                    >
+                    <h1 className="font-head font-extrabold mt-2.5 text-text hero-heading">
                         Artem
                         <br />
                         Honcharenko
