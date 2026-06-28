@@ -26,7 +26,7 @@ function FolderIcon({ className }: { className?: string }) {
 
 export function ServiceCard({ title, description, index }: ServiceCardProps) {
     return (
-        <div className="border border-border rounded-2xl bg-panel p-6 min-h-44 flex flex-col justify-between transition-colors duration-200 hover:border-acc-a">
+        <div className="border border-border rounded-2xl bg-panel p-6 min-h-44 h-full flex flex-col gap-6 transition-colors duration-200 hover:border-acc-a">
             <FolderIcon className={cn(index % 2 === 0 ? "text-acc-b" : "text-text")} />
             <div>
                 <div className="font-head font-semibold text-base text-text">{title}</div>

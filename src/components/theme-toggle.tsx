@@ -11,12 +11,7 @@ export function ThemeToggle() {
             aria-label="Toggle theme"
             className="flex h-10 w-10 flex-none cursor-pointer items-center justify-center rounded-xl border border-border-2 bg-panel transition duration-200 hover:-translate-y-px hover:border-acc-a"
         >
-            <span
-                className="h-4 w-4 rounded-full border-2 border-text"
-                style={{
-                    background: "linear-gradient(90deg, var(--text) 0 50%, transparent 50% 100%)",
-                }}
-            />
+            <span className="h-4 w-4 rounded-full border-2 border-text theme-toggle-icon" />
         </button>
     );
 }

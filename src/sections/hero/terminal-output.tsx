@@ -44,10 +44,7 @@ export function TerminalOutput({ phrases }: TerminalOutputProps) {
     }, [phrases, reduce]);
 
     return (
-        <div
-            className="font-head font-medium text-text"
-            style={{ minHeight: "2.6em", lineHeight: "1.25", fontSize: "clamp(20px, 3.6vw, 34px)" }}
-        >
+        <div className="font-head font-medium text-text leading-tight typewriter-text">
             <span className="text-acc-a">&gt;&nbsp;</span>
             <span className="break-words">{reduce ? phrases[0] : text}</span>
             <span className="terminal-cursor" aria-hidden="true" />
