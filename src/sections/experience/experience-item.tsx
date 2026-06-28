@@ -1,5 +1,7 @@
+import { PortableText } from "next-sanity";
+
 import { cn } from "@/lib/cn";
-import type { ExperiencePosition } from "@/sanity/queries/experience";
+import type { ExperienceBlock, ExperiencePosition } from "@/sanity/queries/experience";
 
 interface ExperienceItemProps {
     position: ExperiencePosition;
@@ -18,6 +20,27 @@ function buildPeriodLabel(position: ExperiencePosition) {
     const period = `${start} — ${end}`;
     return position.country ? `${period} · ${position.country}` : period;
 }
+
+const descriptionComponents = {
+    block: {
+        normal: ({ children }: { children?: React.ReactNode }) => (
+            <p className="text-sm text-muted leading-relaxed">{children}</p>
+        ),
+    },
+    list: {
+        bullet: ({ children }: { children?: React.ReactNode }) => (
+            <ul className="flex flex-col gap-2">{children}</ul>
+        ),
+    },
+    listItem: {
+        bullet: ({ children }: { children?: React.ReactNode }) => (
+            <li className="flex gap-2.5 text-sm text-muted leading-relaxed">
+                <span className="text-acc-b font-head flex-none">—</span>
+                <div>{children}</div>
+            </li>
+        ),
+    },
+};
 
 export function ExperienceItem({ position, index, isLast }: ExperienceItemProps) {
     const isEven = index % 2 === 0;
@@ -49,14 +72,12 @@ export function ExperienceItem({ position, index, isLast }: ExperienceItemProps)
                     </span>
                 </div>
 
-                <ul className="mt-3.5 flex flex-col gap-2 list-none p-0 m-0">
-                    {position.description.map((block) => (
-                        <li key={block._key} className="flex gap-2.5 text-sm text-muted leading-relaxed">
-                            <span className="text-acc-b font-head flex-none">—</span>
-                            <span>{block.children.map((span) => span.text).join("")}</span>
-                        </li>
-                    ))}
-                </ul>
+                <div className="mt-3.5 flex flex-col gap-2">
+                    <PortableText
+                        value={position.description as ExperienceBlock[]}
+                        components={descriptionComponents}
+                    />
+                </div>
             </div>
         </div>
     );
