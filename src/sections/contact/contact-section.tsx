@@ -70,12 +70,13 @@ export async function ContactSection() {
                                 Open to frontend roles and freelance work. Drop me an email or reach out on LinkedIn.
                             </p>
 
-                            <div className="flex flex-wrap gap-3.5 justify-center mt-9">
+                            <div className="flex flex-col sm:flex-row gap-3.5 justify-center items-stretch sm:items-center mt-9">
                                 {hasEmail && (
                                     <ButtonLink
                                         href={`mailto:${contacts.email}`}
                                         variant="primary"
                                         icon={<EmailIcon />}
+                                        className="justify-center"
                                     >
                                         Email
                                     </ButtonLink>
@@ -87,6 +88,7 @@ export async function ContactSection() {
                                         variant="ghost"
                                         icon={<LinkedInIcon />}
                                         external={true}
+                                        className="justify-center"
                                     >
                                         LinkedIn
                                     </ButtonLink>
@@ -98,6 +100,7 @@ export async function ContactSection() {
                                         variant="ghost"
                                         icon={<GitHubIcon />}
                                         external={true}
+                                        className="justify-center"
                                     >
                                         GitHub
                                     </ButtonLink>
